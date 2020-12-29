@@ -57,6 +57,7 @@
     <Compile Include="LogIn.Designer.cs">
       <DependentUpon>LogIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
