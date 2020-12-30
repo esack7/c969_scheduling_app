@@ -40,5 +40,30 @@ namespace C969___Scheduling_App___Isaac_Heist
 
             return listOfUsers;
         }
+
+        public static void getCustomerByUserName(string userName)
+        {
+            string query = $"select * from customer where customer.createdBy = \"{ userName }\"";
+
+            dbConnect.Open();
+            MySqlCommand cmd = new MySqlCommand(query, dbConnect);
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                int customerID = Convert.ToInt32(dataReader[0]);
+                string customerName = dataReader[1].ToString();
+                int addressID = Convert.ToInt32(dataReader[2]);
+                int active = Convert.ToInt32(dataReader[3]);
+                DateTime createDate = Convert.ToDateTime(dataReader[4]);
+                string createdBy = dataReader[5].ToString();
+                DateTime lastUpdate = Convert.ToDateTime(dataReader[6]);
+                string lastUpdateBy = dataReader[7].ToString();
+
+                CustomerRecords.ListOfCustomers.Add(new Customer(customerID, customerName, addressID, active, createDate, createdBy, lastUpdate, lastUpdateBy));
+            }
+
+            dbConnect.Close();
+        }
     }
 }

@@ -71,7 +71,9 @@ namespace C969___Scheduling_App___Isaac_Heist
                     throw new LoginException("The password is incorrect");
                 }
 
-                MessageBox.Show("You have successfully logged in!", "Login Status", MessageBoxButtons.OK);
+                var customerRecords = new CustomerRecords(signedInUser[0]);
+                customerRecords.Show();
+                Hide();
             }
             catch (LoginException error)
             {
