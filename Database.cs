@@ -43,7 +43,7 @@ namespace C969___Scheduling_App___Isaac_Heist
 
         public static void getCustomerByUserName(string userName)
         {
-            string query = $"select * from customer where customer.createdBy = \"{ userName }\"";
+            string query = $"select * from customer where customer.createdBy=\"{userName}\"";
 
             dbConnect.Open();
             MySqlCommand cmd = new MySqlCommand(query, dbConnect);
