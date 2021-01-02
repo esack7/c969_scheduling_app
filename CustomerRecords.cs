@@ -32,6 +32,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             Database.getAddresses();
             Database.getCities();
             Database.getCountries();
+            // Using Lambda in Linq statement below to construct a new dictionary that holds "string" as a value rather than the City object
             Dictionary<int, string> cityNameDictionary = CityDictionary.ToDictionary(dict => dict.Key, dict => dict.Value.CityName);
             cityComboBox.DataSource = new BindingSource(cityNameDictionary, null);
             cityComboBox.DisplayMember = "Value";
