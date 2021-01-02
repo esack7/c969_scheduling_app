@@ -61,6 +61,35 @@ namespace C969___Scheduling_App___Isaac_Heist
             dataGridView.ClearSelection();
         }
 
+        private void clearInputs()
+        {
+            nameTextBox.Text = "";
+            idTextBox.Text = "";
+            addressTextBox.Text = "";
+            address2TextBox.Text = "";
+            zipTextBox.Text = "";
+            phoneTextBox.Text = "";
+            cityComboBox.Text = "";
+            countryTextBox.Text = "";
+        }
+
+        private void toggleActiveInputs(bool active)
+        {
+            nameTextBox.Enabled = active;
+            addressTextBox.Enabled = active;
+            address2TextBox.Enabled = active;
+            cityComboBox.Enabled = active;
+            zipTextBox.Enabled = active;
+            phoneTextBox.Enabled = active;
+            saveButton.Visible = active;
+            cancelButton.Visible = active;
+            addButton.Visible = !active;
+            editButton.Visible = !active;
+            deleteButton.Visible = !active;
+            backButton.Visible = !active;
+            customerDataGridView.Enabled = !active;
+        }
+
         private void customerDataGridView_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             var selectedRow = customerDataGridView.SelectedRows[0];
@@ -77,6 +106,51 @@ namespace C969___Scheduling_App___Isaac_Heist
             phoneTextBox.Text = AddressDictionary[selectedAddressId].Phone;
             cityComboBox.Text = CityDictionary[selectedCityId].CityName;
             countryTextBox.Text = CountryDictionary[selectedCountryId].CountryName;
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            customerDataGridView.ClearSelection();
+            clearInputs();
+            toggleActiveInputs(true);
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string customerName = nameTextBox.Text;
+                string address1 = addressTextBox.Text;
+                string address2 = address2TextBox.Text;
+                string postalCode = zipTextBox.Text;
+                string phone = phoneTextBox.Text;
+                int cityID = Convert.ToInt32(cityComboBox.SelectedValue);
+
+                int addressID = Database.addAddress(address1, address2, cityID, postalCode, phone, User.UserName);
+                int customerID = Database.addCustomer(customerName, addressID, User.UserName);
+
+                clearInputs();
+                toggleActiveInputs(false);
+                //var addedRow = customerDataGridView.Rows.Cast<DataGridViewRow>().Where(row => Convert.ToInt32(row.Cells[0].Value) == customerID).Single();
+                //addedRow.Selected = true;           
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            clearInputs();
+            toggleActiveInputs(false);
+        }
+
+        private void cityComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            var selectedCityKey = cityComboBox.SelectedValue;
+            int selectedCountryKey = CityDictionary[Convert.ToInt32(selectedCityKey)].CountryId;
+            countryTextBox.Text = CountryDictionary[selectedCountryKey].CountryName;
         }
     }
 }

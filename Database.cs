@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace C969___Scheduling_App___Isaac_Heist
 {
@@ -66,6 +67,21 @@ namespace C969___Scheduling_App___Isaac_Heist
             dbConnect.Close();
         }
 
+        public static int addCustomer(string customerName, int addressID, string user)
+        {
+            DateTime now = DateTime.Now;
+            var addedCustomer = new Customer(customerName, addressID, 1, now, user, now, user);
+
+            dbConnect.Open();
+            string query = $"INSERT INTO `customer` VALUES ({addedCustomer.CustomerId}, '{addedCustomer.CustomerName}', {addedCustomer.AddressId}, {addedCustomer.Active}, '{addedCustomer.CreateDate.ToString("yy-MM-dd HH:mm:ss", DateTimeFormatInfo.InvariantInfo)}', '{addedCustomer.CreatedBy}', '{addedCustomer.LastUpdate.ToString("yy-MM-dd HH:mm:ss", DateTimeFormatInfo.InvariantInfo)}', '{addedCustomer.LastUpdateBy}')";
+            MySqlCommand cmd = new MySqlCommand(query, dbConnect);
+            cmd.ExecuteNonQuery();
+            dbConnect.Close();
+
+            CustomerRecords.ListOfCustomers.Add(addedCustomer);
+            return addedCustomer.CustomerId;
+        }
+
         public static void getAddresses()
         {
             string query = "select * from address";
@@ -90,6 +106,21 @@ namespace C969___Scheduling_App___Isaac_Heist
                 CustomerRecords.AddressDictionary.Add(addressID, new Address(addressID, address1, address2, cityID, postalCode, phone, createDate, createdBy, lastUpdate, lastUpdateBy));
             }
             dbConnect.Close();
+        }
+
+        public static int addAddress(string address1, string address2, int cityId, string postalCode, string phone, string userName)
+        {
+            DateTime now = DateTime.Now;
+            var addedAddress = new Address(address1, address2, cityId, postalCode, phone, now, userName, now, userName);
+
+            dbConnect.Open();
+            string query = $"INSERT INTO `address` VALUES ({addedAddress.AddressId}, '{addedAddress.AddressLine}', '{addedAddress.AddressLine2}', {addedAddress.CityId}, '{addedAddress.PostalCode}', '{addedAddress.Phone}', '{addedAddress.CreateDate.ToString("yy-MM-dd HH:mm:ss", DateTimeFormatInfo.InvariantInfo)}', '{addedAddress.CreatedBy}', '{addedAddress.LastUpdate.ToString("yy-MM-dd HH:mm:ss", DateTimeFormatInfo.InvariantInfo)}', '{addedAddress.LastUpdateBy}')";
+            MySqlCommand cmd = new MySqlCommand(query, dbConnect);
+            cmd.ExecuteNonQuery();
+            dbConnect.Close();
+
+            CustomerRecords.AddressDictionary.Add(addedAddress.AddressId, addedAddress);
+            return addedAddress.AddressId;
         }
 
         public static void getCities()

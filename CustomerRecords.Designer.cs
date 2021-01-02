@@ -51,6 +51,8 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.label8 = new System.Windows.Forms.Label();
             this.idTextBox = new System.Windows.Forms.TextBox();
             this.backButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,6 +85,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.addButton.TabIndex = 3;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // editButton
             // 
@@ -131,7 +134,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(25, 310);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 15);
+            this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 12;
             this.label1.Text = "Address";
             // 
@@ -140,7 +143,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(25, 346);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 15);
+            this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 13;
             this.label2.Text = "Address 2";
             // 
@@ -149,7 +152,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(25, 384);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 15);
+            this.label3.Size = new System.Drawing.Size(24, 13);
             this.label3.TabIndex = 14;
             this.label3.Text = "City";
             // 
@@ -158,7 +161,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(25, 421);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 15);
+            this.label4.Size = new System.Drawing.Size(43, 13);
             this.label4.TabIndex = 15;
             this.label4.Text = "Country";
             // 
@@ -167,7 +170,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(357, 384);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 15);
+            this.label5.Size = new System.Drawing.Size(50, 13);
             this.label5.TabIndex = 16;
             this.label5.Text = "Zip Code";
             // 
@@ -176,7 +179,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(300, 421);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 15);
+            this.label6.Size = new System.Drawing.Size(38, 13);
             this.label6.TabIndex = 17;
             this.label6.Text = "Phone";
             // 
@@ -196,6 +199,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.cityComboBox.Name = "cityComboBox";
             this.cityComboBox.Size = new System.Drawing.Size(238, 21);
             this.cityComboBox.TabIndex = 19;
+            this.cityComboBox.SelectionChangeCommitted += new System.EventHandler(this.cityComboBox_SelectionChangeCommitted);
             // 
             // countryTextBox
             // 
@@ -218,7 +222,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(25, 273);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 19);
+            this.label7.Size = new System.Drawing.Size(35, 13);
             this.label7.TabIndex = 21;
             this.label7.Text = "Name";
             // 
@@ -227,7 +231,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(377, 273);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(19, 15);
+            this.label8.Size = new System.Drawing.Size(18, 13);
             this.label8.TabIndex = 22;
             this.label8.Text = "ID";
             // 
@@ -248,11 +252,35 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.backButton.Text = "Back to Main";
             this.backButton.UseVisualStyleBackColor = true;
             // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(559, 146);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(211, 44);
+            this.saveButton.TabIndex = 25;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Visible = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.Location = new System.Drawing.Point(559, 233);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(211, 44);
+            this.cancelButton.TabIndex = 26;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Visible = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
             // CustomerRecords
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.idTextBox);
             this.Controls.Add(this.label8);
@@ -309,5 +337,7 @@ namespace C969___Scheduling_App___Isaac_Heist
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox idTextBox;
         private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button cancelButton;
     }
 }
