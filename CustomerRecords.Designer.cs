@@ -31,22 +31,26 @@ namespace C969___Scheduling_App___Isaac_Heist
         {
             this.mainLabel = new System.Windows.Forms.Label();
             this.customerDataGridView = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.addButton = new System.Windows.Forms.Button();
+            this.editButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.addressTextBox = new System.Windows.Forms.TextBox();
+            this.address2TextBox = new System.Windows.Forms.TextBox();
+            this.zipTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.phoneTextBox = new System.Windows.Forms.TextBox();
+            this.cityComboBox = new System.Windows.Forms.ComboBox();
+            this.countryTextBox = new System.Windows.Forms.TextBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.idTextBox = new System.Windows.Forms.TextBox();
+            this.backButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,79 +70,61 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.customerDataGridView.Location = new System.Drawing.Point(28, 56);
             this.customerDataGridView.Name = "customerDataGridView";
             this.customerDataGridView.RowHeadersWidth = 51;
-            this.customerDataGridView.Size = new System.Drawing.Size(480, 226);
+            this.customerDataGridView.Size = new System.Drawing.Size(480, 184);
             this.customerDataGridView.TabIndex = 2;
+            this.customerDataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.customerDataGridView_CellMouseClick);
+            this.customerDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.customerDataGridView_DataBindingComplete);
             // 
-            // button1
+            // addButton
             // 
-            this.button1.Location = new System.Drawing.Point(559, 56);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(211, 44);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.addButton.Location = new System.Drawing.Point(559, 106);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(211, 44);
+            this.addButton.TabIndex = 3;
+            this.addButton.Text = "Add";
+            this.addButton.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // editButton
             // 
-            this.button2.Location = new System.Drawing.Point(559, 118);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(211, 44);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.editButton.Location = new System.Drawing.Point(559, 196);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(211, 44);
+            this.editButton.TabIndex = 4;
+            this.editButton.Text = "Edit";
+            this.editButton.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // deleteButton
             // 
-            this.button3.Location = new System.Drawing.Point(559, 179);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(211, 44);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.deleteButton.Location = new System.Drawing.Point(559, 283);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(211, 44);
+            this.deleteButton.TabIndex = 5;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // addressTextBox
             // 
-            this.button4.Location = new System.Drawing.Point(559, 238);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(211, 44);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.addressTextBox.Enabled = false;
+            this.addressTextBox.Location = new System.Drawing.Point(94, 307);
+            this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.Size = new System.Drawing.Size(414, 20);
+            this.addressTextBox.TabIndex = 7;
             // 
-            // textBox1
+            // address2TextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(94, 307);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(338, 20);
-            this.textBox1.TabIndex = 7;
+            this.address2TextBox.Enabled = false;
+            this.address2TextBox.Location = new System.Drawing.Point(94, 343);
+            this.address2TextBox.Name = "address2TextBox";
+            this.address2TextBox.Size = new System.Drawing.Size(414, 20);
+            this.address2TextBox.TabIndex = 8;
             // 
-            // textBox2
+            // zipTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(94, 343);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(338, 20);
-            this.textBox2.TabIndex = 8;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(94, 381);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(246, 20);
-            this.textBox3.TabIndex = 9;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(94, 418);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(168, 20);
-            this.textBox4.TabIndex = 10;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(419, 381);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(89, 20);
-            this.textBox5.TabIndex = 11;
+            this.zipTextBox.Enabled = false;
+            this.zipTextBox.Location = new System.Drawing.Point(419, 381);
+            this.zipTextBox.Name = "zipTextBox";
+            this.zipTextBox.Size = new System.Drawing.Size(89, 20);
+            this.zipTextBox.TabIndex = 11;
             // 
             // label1
             // 
@@ -154,7 +140,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(25, 346);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 19);
+            this.label2.Size = new System.Drawing.Size(61, 15);
             this.label2.TabIndex = 13;
             this.label2.Text = "Address 2";
             // 
@@ -163,7 +149,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(25, 384);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 19);
+            this.label3.Size = new System.Drawing.Size(26, 15);
             this.label3.TabIndex = 14;
             this.label3.Text = "City";
             // 
@@ -172,7 +158,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(25, 421);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 19);
+            this.label4.Size = new System.Drawing.Size(48, 15);
             this.label4.TabIndex = 15;
             this.label4.Text = "Country";
             // 
@@ -190,38 +176,103 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(300, 421);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 19);
+            this.label6.Size = new System.Drawing.Size(43, 15);
             this.label6.TabIndex = 17;
             this.label6.Text = "Phone";
             // 
-            // textBox6
+            // phoneTextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(360, 418);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(148, 20);
-            this.textBox6.TabIndex = 18;
+            this.phoneTextBox.Enabled = false;
+            this.phoneTextBox.Location = new System.Drawing.Point(360, 418);
+            this.phoneTextBox.Name = "phoneTextBox";
+            this.phoneTextBox.Size = new System.Drawing.Size(148, 20);
+            this.phoneTextBox.TabIndex = 18;
+            // 
+            // cityComboBox
+            // 
+            this.cityComboBox.Enabled = false;
+            this.cityComboBox.FormattingEnabled = true;
+            this.cityComboBox.Location = new System.Drawing.Point(94, 381);
+            this.cityComboBox.Name = "cityComboBox";
+            this.cityComboBox.Size = new System.Drawing.Size(238, 21);
+            this.cityComboBox.TabIndex = 19;
+            // 
+            // countryTextBox
+            // 
+            this.countryTextBox.Enabled = false;
+            this.countryTextBox.Location = new System.Drawing.Point(94, 418);
+            this.countryTextBox.Name = "countryTextBox";
+            this.countryTextBox.Size = new System.Drawing.Size(168, 20);
+            this.countryTextBox.TabIndex = 10;
+            // 
+            // nameTextBox
+            // 
+            this.nameTextBox.Enabled = false;
+            this.nameTextBox.Location = new System.Drawing.Point(94, 270);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(238, 20);
+            this.nameTextBox.TabIndex = 20;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(25, 273);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(51, 19);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Name";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(377, 273);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(19, 15);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "ID";
+            // 
+            // idTextBox
+            // 
+            this.idTextBox.Enabled = false;
+            this.idTextBox.Location = new System.Drawing.Point(419, 270);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(89, 20);
+            this.idTextBox.TabIndex = 23;
+            // 
+            // backButton
+            // 
+            this.backButton.Location = new System.Drawing.Point(559, 368);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(211, 44);
+            this.backButton.TabIndex = 24;
+            this.backButton.Text = "Back to Main";
+            this.backButton.UseVisualStyleBackColor = true;
             // 
             // CustomerRecords
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.backButton);
+            this.Controls.Add(this.idTextBox);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.nameTextBox);
+            this.Controls.Add(this.cityComboBox);
+            this.Controls.Add(this.phoneTextBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.zipTextBox);
+            this.Controls.Add(this.countryTextBox);
+            this.Controls.Add(this.address2TextBox);
+            this.Controls.Add(this.addressTextBox);
+            this.Controls.Add(this.deleteButton);
+            this.Controls.Add(this.editButton);
+            this.Controls.Add(this.addButton);
             this.Controls.Add(this.customerDataGridView);
             this.Controls.Add(this.mainLabel);
             this.Name = "CustomerRecords";
@@ -238,21 +289,25 @@ namespace C969___Scheduling_App___Isaac_Heist
 
         private System.Windows.Forms.Label mainLabel;
         private System.Windows.Forms.DataGridView customerDataGridView;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.TextBox addressTextBox;
+        private System.Windows.Forms.TextBox address2TextBox;
+        private System.Windows.Forms.TextBox zipTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox phoneTextBox;
+        private System.Windows.Forms.ComboBox cityComboBox;
+        private System.Windows.Forms.TextBox countryTextBox;
+        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox idTextBox;
+        private System.Windows.Forms.Button backButton;
     }
 }
