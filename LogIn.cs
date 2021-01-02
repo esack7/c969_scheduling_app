@@ -70,6 +70,7 @@ namespace C969___Scheduling_App___Isaac_Heist
                     }
                     throw new LoginException("The password is incorrect");
                 }
+                Logging.logActivity(signedInUser[0]);
 
                 var customerRecords = new CustomerRecords(signedInUser[0]);
                 customerRecords.Show();
