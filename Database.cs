@@ -93,6 +93,23 @@ namespace C969___Scheduling_App___Isaac_Heist
             deleteAddress(customer.AddressId);
         }
 
+        public static void updateCustomer(Customer customer, string customerName, string user)
+        {
+            DateTime now = DateTime.Now;
+            string nowString = now.ToString("yy-MM-dd HH:mm:ss", DateTimeFormatInfo.InvariantInfo);
+            dbConnect.Open();
+            string query = $"UPDATE customer SET customerName='{customerName}', lastUpdate='{nowString}', lastUpdateBy='{user}' WHERE customerId={customer.CustomerId};";
+            MySqlCommand cmd = new MySqlCommand(query, dbConnect);
+            cmd.ExecuteNonQuery();
+            dbConnect.Close();
+
+            Customer updatedCustomer = new Customer(customer.CustomerId, customerName, customer.AddressId, customer.Active, customer.CreateDate, customer.CreatedBy, now, user);
+            int indexOfCustomerList = CustomerRecords.ListOfCustomers.IndexOf(customer);
+            CustomerRecords.ListOfCustomers.RemoveAt(indexOfCustomerList);
+            CustomerRecords.ListOfCustomers.Insert(indexOfCustomerList, updatedCustomer);
+        }
+
+
         public static void getAddresses()
         {
             string query = "select * from address";
@@ -142,6 +159,19 @@ namespace C969___Scheduling_App___Isaac_Heist
             cmd.ExecuteNonQuery();
             dbConnect.Close();
             CustomerRecords.AddressDictionary.Remove(addressID);
+        }
+
+        public static void updateAddress(Address address, string address1, string address2, int cityId, string postalCode, string phone, string user)
+        {
+            DateTime now = DateTime.Now;
+            string nowString = now.ToString("yy-MM-dd HH:mm:ss", DateTimeFormatInfo.InvariantInfo);
+            dbConnect.Open();
+            string query = $"UPDATE address SET address='{address1}', address2='{address2}', cityId={cityId}, postalCode='{postalCode}', phone='{phone}', lastUpdate='{nowString}', lastUpdateBy='{user}' WHERE addressId={address.AddressId};";
+            MySqlCommand cmd = new MySqlCommand(query, dbConnect);
+            cmd.ExecuteNonQuery();
+            dbConnect.Close();
+
+            CustomerRecords.AddressDictionary[address.AddressId] = new Address(address.AddressId, address1, address2, cityId, postalCode, phone, address.CreateDate, address.CreatedBy, now, user);
         }
 
         public static void getCities()

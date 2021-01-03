@@ -129,14 +129,26 @@ namespace C969___Scheduling_App___Isaac_Heist
                 string postalCode = zipTextBox.Text;
                 string phone = phoneTextBox.Text;
                 int cityID = Convert.ToInt32(cityComboBox.SelectedValue);
+                int customerID;
 
-                int addressID = Database.addAddress(address1, address2, cityID, postalCode, phone, User.UserName);
-                int customerID = Database.addCustomer(customerName, addressID, User.UserName);
+                if (idTextBox.Text == "")
+                {
+                    int addressID = Database.addAddress(address1, address2, cityID, postalCode, phone, User.UserName);
+                    customerID = Database.addCustomer(customerName, addressID, User.UserName);
+                    idTextBox.Text = customerID.ToString();
+                }
+                else
+                {
+                    customerID = Convert.ToInt32(idTextBox.Text);
+                    Customer currentCustomer = ListOfCustomers.Where(c => c.CustomerId == customerID).Single();
+                    Address address = AddressDictionary[currentCustomer.AddressId];
 
-                clearInputs();
+                    Database.updateCustomer(currentCustomer, customerName, User.UserName);
+                    Database.updateAddress(address, address1, address2, cityID, postalCode, phone, User.UserName);
+                }
+                                
                 toggleActiveInputs(false);
-                //var addedRow = customerDataGridView.Rows.Cast<DataGridViewRow>().Where(row => Convert.ToInt32(row.Cells[0].Value) == customerID).Single();
-                //addedRow.Selected = true;           
+                customerDataGridView.Rows.Cast<DataGridViewRow>().Where(row => Convert.ToInt32(row.Cells[0].Value) == customerID).Single().Selected = true;     
             }
             catch (ApplicationException error)
             {
@@ -150,6 +162,7 @@ namespace C969___Scheduling_App___Isaac_Heist
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            customerDataGridView.ClearSelection();
             clearInputs();
             toggleActiveInputs(false);
         }
@@ -183,6 +196,26 @@ namespace C969___Scheduling_App___Isaac_Heist
                     customerDataGridView.ClearSelection();
                     clearInputs();
                 }
+            }
+            catch (ApplicationException error)
+            {
+                MessageBox.Show(error.Message, "Instructions", MessageBoxButtons.OK);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (customerDataGridView.SelectedRows.Count < 1)
+                {
+                    throw new ApplicationException("You must select a customer to edit.");
+                }
+                toggleActiveInputs(true);
             }
             catch (ApplicationException error)
             {
