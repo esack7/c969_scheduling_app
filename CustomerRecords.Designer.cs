@@ -59,9 +59,10 @@ namespace C969___Scheduling_App___Isaac_Heist
             // mainLabel
             // 
             this.mainLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mainLabel.Location = new System.Drawing.Point(0, 9);
+            this.mainLabel.Location = new System.Drawing.Point(0, 11);
+            this.mainLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.mainLabel.Name = "mainLabel";
-            this.mainLabel.Size = new System.Drawing.Size(798, 32);
+            this.mainLabel.Size = new System.Drawing.Size(1064, 39);
             this.mainLabel.TabIndex = 1;
             this.mainLabel.Text = "Customer Records for $\"{user}\": ";
             this.mainLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -69,19 +70,21 @@ namespace C969___Scheduling_App___Isaac_Heist
             // customerDataGridView
             // 
             this.customerDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.customerDataGridView.Location = new System.Drawing.Point(28, 56);
+            this.customerDataGridView.Location = new System.Drawing.Point(37, 69);
+            this.customerDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.customerDataGridView.Name = "customerDataGridView";
             this.customerDataGridView.RowHeadersWidth = 51;
-            this.customerDataGridView.Size = new System.Drawing.Size(480, 184);
+            this.customerDataGridView.Size = new System.Drawing.Size(640, 226);
             this.customerDataGridView.TabIndex = 2;
             this.customerDataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.customerDataGridView_CellMouseClick);
             this.customerDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.customerDataGridView_DataBindingComplete);
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(559, 106);
+            this.addButton.Location = new System.Drawing.Point(745, 130);
+            this.addButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(211, 44);
+            this.addButton.Size = new System.Drawing.Size(281, 54);
             this.addButton.TabIndex = 3;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
@@ -89,9 +92,10 @@ namespace C969___Scheduling_App___Isaac_Heist
             // 
             // editButton
             // 
-            this.editButton.Location = new System.Drawing.Point(559, 196);
+            this.editButton.Location = new System.Drawing.Point(745, 241);
+            this.editButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(211, 44);
+            this.editButton.Size = new System.Drawing.Size(281, 54);
             this.editButton.TabIndex = 4;
             this.editButton.Text = "Edit";
             this.editButton.UseVisualStyleBackColor = true;
@@ -99,9 +103,10 @@ namespace C969___Scheduling_App___Isaac_Heist
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(559, 283);
+            this.deleteButton.Location = new System.Drawing.Point(745, 348);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(211, 44);
+            this.deleteButton.Size = new System.Drawing.Size(281, 54);
             this.deleteButton.TabIndex = 5;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
@@ -110,155 +115,174 @@ namespace C969___Scheduling_App___Isaac_Heist
             // addressTextBox
             // 
             this.addressTextBox.Enabled = false;
-            this.addressTextBox.Location = new System.Drawing.Point(94, 307);
+            this.addressTextBox.Location = new System.Drawing.Point(125, 378);
+            this.addressTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Size = new System.Drawing.Size(414, 20);
+            this.addressTextBox.Size = new System.Drawing.Size(551, 22);
             this.addressTextBox.TabIndex = 7;
             // 
             // address2TextBox
             // 
             this.address2TextBox.Enabled = false;
-            this.address2TextBox.Location = new System.Drawing.Point(94, 343);
+            this.address2TextBox.Location = new System.Drawing.Point(125, 422);
+            this.address2TextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.address2TextBox.Name = "address2TextBox";
-            this.address2TextBox.Size = new System.Drawing.Size(414, 20);
+            this.address2TextBox.Size = new System.Drawing.Size(551, 22);
             this.address2TextBox.TabIndex = 8;
             // 
             // zipTextBox
             // 
             this.zipTextBox.Enabled = false;
-            this.zipTextBox.Location = new System.Drawing.Point(419, 381);
+            this.zipTextBox.Location = new System.Drawing.Point(559, 469);
+            this.zipTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.zipTextBox.Name = "zipTextBox";
-            this.zipTextBox.Size = new System.Drawing.Size(89, 20);
+            this.zipTextBox.Size = new System.Drawing.Size(117, 22);
             this.zipTextBox.TabIndex = 11;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 310);
+            this.label1.Location = new System.Drawing.Point(33, 382);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 13);
+            this.label1.Size = new System.Drawing.Size(59, 16);
             this.label1.TabIndex = 12;
             this.label1.Text = "Address";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 346);
+            this.label2.Location = new System.Drawing.Point(33, 426);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 13);
+            this.label2.Size = new System.Drawing.Size(69, 16);
             this.label2.TabIndex = 13;
             this.label2.Text = "Address 2";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 384);
+            this.label3.Location = new System.Drawing.Point(33, 473);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(24, 13);
+            this.label3.Size = new System.Drawing.Size(30, 16);
             this.label3.TabIndex = 14;
             this.label3.Text = "City";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 421);
+            this.label4.Location = new System.Drawing.Point(33, 518);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.Size = new System.Drawing.Size(53, 16);
             this.label4.TabIndex = 15;
             this.label4.Text = "Country";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(357, 384);
+            this.label5.Location = new System.Drawing.Point(476, 473);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 13);
+            this.label5.Size = new System.Drawing.Size(63, 16);
             this.label5.TabIndex = 16;
             this.label5.Text = "Zip Code";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(300, 421);
+            this.label6.Location = new System.Drawing.Point(400, 518);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 13);
+            this.label6.Size = new System.Drawing.Size(47, 16);
             this.label6.TabIndex = 17;
             this.label6.Text = "Phone";
             // 
             // phoneTextBox
             // 
             this.phoneTextBox.Enabled = false;
-            this.phoneTextBox.Location = new System.Drawing.Point(360, 418);
+            this.phoneTextBox.Location = new System.Drawing.Point(480, 514);
+            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.phoneTextBox.Name = "phoneTextBox";
-            this.phoneTextBox.Size = new System.Drawing.Size(148, 20);
+            this.phoneTextBox.Size = new System.Drawing.Size(196, 22);
             this.phoneTextBox.TabIndex = 18;
             // 
             // cityComboBox
             // 
             this.cityComboBox.Enabled = false;
             this.cityComboBox.FormattingEnabled = true;
-            this.cityComboBox.Location = new System.Drawing.Point(94, 381);
+            this.cityComboBox.Location = new System.Drawing.Point(125, 469);
+            this.cityComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cityComboBox.Name = "cityComboBox";
-            this.cityComboBox.Size = new System.Drawing.Size(238, 21);
+            this.cityComboBox.Size = new System.Drawing.Size(316, 24);
             this.cityComboBox.TabIndex = 19;
             this.cityComboBox.SelectionChangeCommitted += new System.EventHandler(this.cityComboBox_SelectionChangeCommitted);
             // 
             // countryTextBox
             // 
             this.countryTextBox.Enabled = false;
-            this.countryTextBox.Location = new System.Drawing.Point(94, 418);
+            this.countryTextBox.Location = new System.Drawing.Point(125, 514);
+            this.countryTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.countryTextBox.Name = "countryTextBox";
-            this.countryTextBox.Size = new System.Drawing.Size(168, 20);
+            this.countryTextBox.Size = new System.Drawing.Size(223, 22);
             this.countryTextBox.TabIndex = 10;
             // 
             // nameTextBox
             // 
             this.nameTextBox.Enabled = false;
-            this.nameTextBox.Location = new System.Drawing.Point(94, 270);
+            this.nameTextBox.Location = new System.Drawing.Point(125, 332);
+            this.nameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(238, 20);
+            this.nameTextBox.Size = new System.Drawing.Size(316, 22);
             this.nameTextBox.TabIndex = 20;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(25, 273);
+            this.label7.Location = new System.Drawing.Point(33, 336);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.Size = new System.Drawing.Size(45, 16);
             this.label7.TabIndex = 21;
             this.label7.Text = "Name";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(377, 273);
+            this.label8.Location = new System.Drawing.Point(503, 336);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(18, 13);
+            this.label8.Size = new System.Drawing.Size(21, 16);
             this.label8.TabIndex = 22;
             this.label8.Text = "ID";
             // 
             // idTextBox
             // 
             this.idTextBox.Enabled = false;
-            this.idTextBox.Location = new System.Drawing.Point(419, 270);
+            this.idTextBox.Location = new System.Drawing.Point(559, 332);
+            this.idTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.idTextBox.Name = "idTextBox";
-            this.idTextBox.Size = new System.Drawing.Size(89, 20);
+            this.idTextBox.Size = new System.Drawing.Size(117, 22);
             this.idTextBox.TabIndex = 23;
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(559, 368);
+            this.backButton.Location = new System.Drawing.Point(745, 453);
+            this.backButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(211, 44);
+            this.backButton.Size = new System.Drawing.Size(281, 54);
             this.backButton.TabIndex = 24;
             this.backButton.Text = "Back to Main";
             this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(559, 146);
+            this.saveButton.Location = new System.Drawing.Point(745, 180);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(211, 44);
+            this.saveButton.Size = new System.Drawing.Size(281, 54);
             this.saveButton.TabIndex = 25;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -267,9 +291,10 @@ namespace C969___Scheduling_App___Isaac_Heist
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(559, 233);
+            this.cancelButton.Location = new System.Drawing.Point(745, 287);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(211, 44);
+            this.cancelButton.Size = new System.Drawing.Size(281, 54);
             this.cancelButton.TabIndex = 26;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -278,9 +303,9 @@ namespace C969___Scheduling_App___Isaac_Heist
             // 
             // CustomerRecords
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.backButton);
@@ -305,6 +330,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.customerDataGridView);
             this.Controls.Add(this.mainLabel);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "CustomerRecords";
             this.Text = "Customer Records";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CustomerRecords_FormClosed);

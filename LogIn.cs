@@ -74,8 +74,8 @@ namespace C969___Scheduling_App___Isaac_Heist
                 }
                 Logging.logActivity(signedInUser[0]);
 
-                var customerRecords = new CustomerRecords(signedInUser[0]);
-                customerRecords.Show();
+                var mainScreen = new MainScreen(signedInUser[0]);
+                mainScreen.Show();
                 Hide();
             }
             catch (LoginException error)

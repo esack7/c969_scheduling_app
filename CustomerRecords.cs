@@ -12,28 +12,20 @@ namespace C969___Scheduling_App___Isaac_Heist
 {
     public partial class CustomerRecords : Form
     {
-        private User User;
-        public static BindingList<Customer> ListOfCustomers = new BindingList<Customer>();
-        public static Dictionary<int, Address> AddressDictionary = new Dictionary<int, Address>();
-        public static Dictionary<int, City> CityDictionary = new Dictionary<int, City>();
-        public static Dictionary<int, Country> CountryDictionary = new Dictionary<int, Country>();
+        private Form Main;
 
-        public CustomerRecords(User user)
+        public CustomerRecords(Form main)
         {
             InitializeComponent();
-            User = user;
-            customerDataGridView.DataSource = ListOfCustomers;
+            customerDataGridView.DataSource = MainScreen.ListOfCustomers;
+            Main = main;
         }
 
         private void CustomerRecords_Load(object sender, EventArgs e)
         {
-            mainLabel.Text = $"Customer Records for {User.UserName}:";
-            Database.getCustomers();
-            Database.getAddresses();
-            Database.getCities();
-            Database.getCountries();
+            mainLabel.Text = $"Customer Records for {MainScreen.LoggedInUser.UserName}:";
             // Using Lambda in Linq statement below to construct a new dictionary that holds "string" as a value rather than the City object
-            Dictionary<int, string> cityNameDictionary = CityDictionary.ToDictionary(dict => dict.Key, dict => dict.Value.CityName);
+            Dictionary<int, string> cityNameDictionary = MainScreen.CityDictionary.ToDictionary(dict => dict.Key, dict => dict.Value.CityName);
             cityComboBox.DataSource = new BindingSource(cityNameDictionary, null);
             cityComboBox.DisplayMember = "Value";
             cityComboBox.ValueMember = "Key";
@@ -42,7 +34,7 @@ namespace C969___Scheduling_App___Isaac_Heist
 
         private void CustomerRecords_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            Main.Show();
         }
 
         private void customerDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -94,18 +86,18 @@ namespace C969___Scheduling_App___Isaac_Heist
         {
             var selectedRow = customerDataGridView.SelectedRows[0];
             int selectedCustomerId = Convert.ToInt32(selectedRow.Cells[0].Value);
-            Customer selectedCustomer = ListOfCustomers.Where(customer => customer.CustomerId == selectedCustomerId).Single();
+            Customer selectedCustomer = MainScreen.ListOfCustomers.Where(customer => customer.CustomerId == selectedCustomerId).Single();
             int selectedAddressId = Convert.ToInt32(selectedCustomer.AddressId);
-            int selectedCityId = AddressDictionary[selectedAddressId].CityId;
-            int selectedCountryId = CityDictionary[selectedCityId].CountryId;
+            int selectedCityId = MainScreen.AddressDictionary[selectedAddressId].CityId;
+            int selectedCountryId = MainScreen.CityDictionary[selectedCityId].CountryId;
             nameTextBox.Text = selectedCustomer.CustomerName;
             idTextBox.Text = selectedCustomer.CustomerId.ToString();
-            addressTextBox.Text = AddressDictionary[selectedAddressId].AddressLine;
-            address2TextBox.Text = AddressDictionary[selectedAddressId].AddressLine2;
-            zipTextBox.Text = AddressDictionary[selectedAddressId].PostalCode;
-            phoneTextBox.Text = AddressDictionary[selectedAddressId].Phone;
-            cityComboBox.Text = CityDictionary[selectedCityId].CityName;
-            countryTextBox.Text = CountryDictionary[selectedCountryId].CountryName;
+            addressTextBox.Text = MainScreen.AddressDictionary[selectedAddressId].AddressLine;
+            address2TextBox.Text = MainScreen.AddressDictionary[selectedAddressId].AddressLine2;
+            zipTextBox.Text = MainScreen.AddressDictionary[selectedAddressId].PostalCode;
+            phoneTextBox.Text = MainScreen.AddressDictionary[selectedAddressId].Phone;
+            cityComboBox.Text = MainScreen.CityDictionary[selectedCityId].CityName;
+            countryTextBox.Text = MainScreen.CountryDictionary[selectedCountryId].CountryName;
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -133,18 +125,18 @@ namespace C969___Scheduling_App___Isaac_Heist
 
                 if (idTextBox.Text == "")
                 {
-                    int addressID = Database.addAddress(address1, address2, cityID, postalCode, phone, User.UserName);
-                    customerID = Database.addCustomer(customerName, addressID, User.UserName);
+                    int addressID = Database.addAddress(address1, address2, cityID, postalCode, phone, MainScreen.LoggedInUser.UserName);
+                    customerID = Database.addCustomer(customerName, addressID, MainScreen.LoggedInUser.UserName);
                     idTextBox.Text = customerID.ToString();
                 }
                 else
                 {
                     customerID = Convert.ToInt32(idTextBox.Text);
-                    Customer currentCustomer = ListOfCustomers.Where(c => c.CustomerId == customerID).Single();
-                    Address address = AddressDictionary[currentCustomer.AddressId];
+                    Customer currentCustomer = MainScreen.ListOfCustomers.Where(c => c.CustomerId == customerID).Single();
+                    Address address = MainScreen.AddressDictionary[currentCustomer.AddressId];
 
-                    Database.updateCustomer(currentCustomer, customerName, User.UserName);
-                    Database.updateAddress(address, address1, address2, cityID, postalCode, phone, User.UserName);
+                    Database.updateCustomer(currentCustomer, customerName, MainScreen.LoggedInUser.UserName);
+                    Database.updateAddress(address, address1, address2, cityID, postalCode, phone, MainScreen.LoggedInUser.UserName);
                 }
                                 
                 toggleActiveInputs(false);
@@ -170,8 +162,8 @@ namespace C969___Scheduling_App___Isaac_Heist
         private void cityComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
             var selectedCityKey = cityComboBox.SelectedValue;
-            int selectedCountryKey = CityDictionary[Convert.ToInt32(selectedCityKey)].CountryId;
-            countryTextBox.Text = CountryDictionary[selectedCountryKey].CountryName;
+            int selectedCountryKey = MainScreen.CityDictionary[Convert.ToInt32(selectedCityKey)].CountryId;
+            countryTextBox.Text = MainScreen.CountryDictionary[selectedCountryKey].CountryName;
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -187,7 +179,7 @@ namespace C969___Scheduling_App___Isaac_Heist
                 {
                     var selectedRow = customerDataGridView.SelectedRows[0];
                     int selectedCustomerId = Convert.ToInt32(selectedRow.Cells[0].Value);
-                    Customer selectedCustomer = ListOfCustomers.Where(customer => customer.CustomerId == selectedCustomerId).Single();
+                    Customer selectedCustomer = MainScreen.ListOfCustomers.Where(customer => customer.CustomerId == selectedCustomerId).Single();
                     Database.deleteCustomer(selectedCustomer);
                     clearInputs();
                 } 
@@ -225,6 +217,11 @@ namespace C969___Scheduling_App___Isaac_Heist
             {
                 MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK);
             }
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -61,7 +61,7 @@ namespace C969___Scheduling_App___Isaac_Heist
                 DateTime lastUpdate = Convert.ToDateTime(dataReader[6]);
                 string lastUpdateBy = dataReader[7].ToString();
 
-                CustomerRecords.ListOfCustomers.Add(new Customer(customerID, customerName, addressID, active, createDate, createdBy, lastUpdate, lastUpdateBy));
+                MainScreen.ListOfCustomers.Add(new Customer(customerID, customerName, addressID, active, createDate, createdBy, lastUpdate, lastUpdateBy));
             }
 
             dbConnect.Close();
@@ -78,7 +78,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             cmd.ExecuteNonQuery();
             dbConnect.Close();
 
-            CustomerRecords.ListOfCustomers.Add(addedCustomer);
+            MainScreen.ListOfCustomers.Add(addedCustomer);
             return addedCustomer.CustomerId;
         }
 
@@ -89,7 +89,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             MySqlCommand cmd = new MySqlCommand(query, dbConnect);
             cmd.ExecuteNonQuery();
             dbConnect.Close();
-            CustomerRecords.ListOfCustomers.Remove(customer);
+            MainScreen.ListOfCustomers.Remove(customer);
             deleteAddress(customer.AddressId);
         }
 
@@ -104,9 +104,9 @@ namespace C969___Scheduling_App___Isaac_Heist
             dbConnect.Close();
 
             Customer updatedCustomer = new Customer(customer.CustomerId, customerName, customer.AddressId, customer.Active, customer.CreateDate, customer.CreatedBy, now, user);
-            int indexOfCustomerList = CustomerRecords.ListOfCustomers.IndexOf(customer);
-            CustomerRecords.ListOfCustomers.RemoveAt(indexOfCustomerList);
-            CustomerRecords.ListOfCustomers.Insert(indexOfCustomerList, updatedCustomer);
+            int indexOfCustomerList = MainScreen.ListOfCustomers.IndexOf(customer);
+            MainScreen.ListOfCustomers.RemoveAt(indexOfCustomerList);
+            MainScreen.ListOfCustomers.Insert(indexOfCustomerList, updatedCustomer);
         }
 
 
@@ -131,7 +131,7 @@ namespace C969___Scheduling_App___Isaac_Heist
                 DateTime lastUpdate = Convert.ToDateTime(dataReader[8]);
                 string lastUpdateBy = dataReader[9].ToString();
 
-                CustomerRecords.AddressDictionary.Add(addressID, new Address(addressID, address1, address2, cityID, postalCode, phone, createDate, createdBy, lastUpdate, lastUpdateBy));
+                MainScreen.AddressDictionary.Add(addressID, new Address(addressID, address1, address2, cityID, postalCode, phone, createDate, createdBy, lastUpdate, lastUpdateBy));
             }
             dbConnect.Close();
         }
@@ -147,7 +147,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             cmd.ExecuteNonQuery();
             dbConnect.Close();
 
-            CustomerRecords.AddressDictionary.Add(addedAddress.AddressId, addedAddress);
+            MainScreen.AddressDictionary.Add(addedAddress.AddressId, addedAddress);
             return addedAddress.AddressId;
         }
 
@@ -158,7 +158,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             MySqlCommand cmd = new MySqlCommand(query, dbConnect);
             cmd.ExecuteNonQuery();
             dbConnect.Close();
-            CustomerRecords.AddressDictionary.Remove(addressID);
+            MainScreen.AddressDictionary.Remove(addressID);
         }
 
         public static void updateAddress(Address address, string address1, string address2, int cityId, string postalCode, string phone, string user)
@@ -171,7 +171,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             cmd.ExecuteNonQuery();
             dbConnect.Close();
 
-            CustomerRecords.AddressDictionary[address.AddressId] = new Address(address.AddressId, address1, address2, cityId, postalCode, phone, address.CreateDate, address.CreatedBy, now, user);
+            MainScreen.AddressDictionary[address.AddressId] = new Address(address.AddressId, address1, address2, cityId, postalCode, phone, address.CreateDate, address.CreatedBy, now, user);
         }
 
         public static void getCities()
@@ -192,7 +192,7 @@ namespace C969___Scheduling_App___Isaac_Heist
                 DateTime lastUpdate = Convert.ToDateTime(dataReader[5]);
                 string lastUpdateBy = dataReader[6].ToString();
 
-                CustomerRecords.CityDictionary.Add(cityID, new City(cityID, city, countryID, createDate, createdBy, lastUpdate, lastUpdateBy));
+                MainScreen.CityDictionary.Add(cityID, new City(cityID, city, countryID, createDate, createdBy, lastUpdate, lastUpdateBy));
             }
             dbConnect.Close();
         }
@@ -214,7 +214,7 @@ namespace C969___Scheduling_App___Isaac_Heist
                 DateTime lastUpdate = Convert.ToDateTime(dataReader[4]);
                 string lastUpdateBy = dataReader[5].ToString();
 
-                CustomerRecords.CountryDictionary.Add(countryID, new Country(countryID, country, createDate, createdBy, lastUpdate, lastUpdateBy));
+                MainScreen.CountryDictionary.Add(countryID, new Country(countryID, country, createDate, createdBy, lastUpdate, lastUpdateBy));
             }
             dbConnect.Close();
         }
