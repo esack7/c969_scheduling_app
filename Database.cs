@@ -82,6 +82,17 @@ namespace C969___Scheduling_App___Isaac_Heist
             return addedCustomer.CustomerId;
         }
 
+        public static void deleteCustomer(Customer customer)
+        {
+            dbConnect.Open();
+            string query = $"DELETE FROM customer WHERE customerId={customer.CustomerId};";
+            MySqlCommand cmd = new MySqlCommand(query, dbConnect);
+            cmd.ExecuteNonQuery();
+            dbConnect.Close();
+            CustomerRecords.ListOfCustomers.Remove(customer);
+            deleteAddress(customer.AddressId);
+        }
+
         public static void getAddresses()
         {
             string query = "select * from address";
@@ -121,6 +132,16 @@ namespace C969___Scheduling_App___Isaac_Heist
 
             CustomerRecords.AddressDictionary.Add(addedAddress.AddressId, addedAddress);
             return addedAddress.AddressId;
+        }
+
+        public static void deleteAddress(int addressID)
+        {
+            dbConnect.Open();
+            string query = $"DELETE FROM address WHERE addressId={addressID};";
+            MySqlCommand cmd = new MySqlCommand(query, dbConnect);
+            cmd.ExecuteNonQuery();
+            dbConnect.Close();
+            CustomerRecords.AddressDictionary.Remove(addressID);
         }
 
         public static void getCities()

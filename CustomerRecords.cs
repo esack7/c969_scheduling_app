@@ -119,6 +119,10 @@ namespace C969___Scheduling_App___Isaac_Heist
         {
             try
             {
+                if (cityComboBox.SelectedItem == null)
+                {
+                    throw new ApplicationException("You must select a city.");
+                }
                 string customerName = nameTextBox.Text;
                 string address1 = addressTextBox.Text;
                 string address2 = address2TextBox.Text;
@@ -133,6 +137,10 @@ namespace C969___Scheduling_App___Isaac_Heist
                 toggleActiveInputs(false);
                 //var addedRow = customerDataGridView.Rows.Cast<DataGridViewRow>().Where(row => Convert.ToInt32(row.Cells[0].Value) == customerID).Single();
                 //addedRow.Selected = true;           
+            }
+            catch (ApplicationException error)
+            {
+                MessageBox.Show(error.Message, "Instructions", MessageBoxButtons.OK);
             }
             catch (Exception err)
             {
@@ -151,6 +159,39 @@ namespace C969___Scheduling_App___Isaac_Heist
             var selectedCityKey = cityComboBox.SelectedValue;
             int selectedCountryKey = CityDictionary[Convert.ToInt32(selectedCityKey)].CountryId;
             countryTextBox.Text = CountryDictionary[selectedCountryKey].CountryName;
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(customerDataGridView.SelectedRows.Count < 1)
+                {
+                    throw new ApplicationException("You must select a customer to delete.");
+                }
+                DialogResult confirmDelete = MessageBox.Show("Are you sure you want to delete the selected customer?", "Application Instruction", MessageBoxButtons.YesNo);
+                if (confirmDelete == DialogResult.Yes)
+                {
+                    var selectedRow = customerDataGridView.SelectedRows[0];
+                    int selectedCustomerId = Convert.ToInt32(selectedRow.Cells[0].Value);
+                    Customer selectedCustomer = ListOfCustomers.Where(customer => customer.CustomerId == selectedCustomerId).Single();
+                    Database.deleteCustomer(selectedCustomer);
+                    clearInputs();
+                } 
+                else
+                {
+                    customerDataGridView.ClearSelection();
+                    clearInputs();
+                }
+            }
+            catch (ApplicationException error)
+            {
+                MessageBox.Show(error.Message, "Instructions", MessageBoxButtons.OK);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK);
+            }
         }
     }
 }

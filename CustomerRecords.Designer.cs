@@ -104,6 +104,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.deleteButton.TabIndex = 5;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // addressTextBox
             // 
