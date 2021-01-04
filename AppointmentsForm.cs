@@ -46,5 +46,12 @@ namespace C969___Scheduling_App___Isaac_Heist
         {
             formatDataGridView();
         }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            var addForm = new AppointmentAddEditForm(this, "Add");
+            addForm.Show();
+            Hide();
+        }
     }
 }

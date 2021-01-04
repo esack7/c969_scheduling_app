@@ -100,6 +100,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.addButton.TabIndex = 26;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // AppointmentsForm
             // 
