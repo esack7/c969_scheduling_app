@@ -23,7 +23,7 @@ namespace C969___Scheduling_App___Isaac_Heist
 
         private void CustomerRecords_Load(object sender, EventArgs e)
         {
-            mainLabel.Text = $"Customer Records for {MainScreen.LoggedInUser.UserName}:";
+            mainLabel.Text = "Customer Records";
             // Using Lambda in Linq statement below to construct a new dictionary that holds "string" as a value rather than the City object
             Dictionary<int, string> cityNameDictionary = MainScreen.CityDictionary.ToDictionary(dict => dict.Key, dict => dict.Value.CityName);
             cityComboBox.DataSource = new BindingSource(cityNameDictionary, null);

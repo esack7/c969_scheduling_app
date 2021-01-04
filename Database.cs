@@ -42,6 +42,32 @@ namespace C969___Scheduling_App___Isaac_Heist
             return listOfUsers;
         }
 
+        public static void getAppointments()
+        {
+            string query = $"select * from appointment WHERE userId={MainScreen.LoggedInUser.UserID}";
+
+            dbConnect.Open();
+            MySqlCommand cmd = new MySqlCommand(query, dbConnect);
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                int appointmentId = Convert.ToInt32(dataReader[0]);
+                int customerId = Convert.ToInt32(dataReader[1]);
+                int userId = Convert.ToInt32(dataReader[2]);
+                string type = dataReader[7].ToString();
+                DateTime start = Convert.ToDateTime(dataReader[9]);
+                DateTime end = Convert.ToDateTime(dataReader[10]);
+                DateTime createDate = Convert.ToDateTime(dataReader[11]);
+                string createdBy = dataReader[12].ToString();
+                DateTime lastUpdate = Convert.ToDateTime(dataReader[13]);
+                string lastUpdateBy = dataReader[14].ToString();
+
+                MainScreen.ListOfAppointments.Add(new Appointment(appointmentId, customerId, userId, type, start, end, createDate, createdBy, lastUpdate, lastUpdateBy));
+            }
+            dbConnect.Close();
+        }
+
         public static void getCustomers()
         {
             string query = "select * from customer";

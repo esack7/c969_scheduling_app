@@ -68,6 +68,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.appointmentsButton.TabIndex = 5;
             this.appointmentsButton.Text = "Appointments";
             this.appointmentsButton.UseVisualStyleBackColor = true;
+            this.appointmentsButton.Click += new System.EventHandler(this.appointmentsButton_Click);
             // 
             // reportsButton
             // 

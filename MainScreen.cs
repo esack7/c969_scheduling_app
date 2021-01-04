@@ -14,6 +14,7 @@ namespace C969___Scheduling_App___Isaac_Heist
     {
         public static User LoggedInUser;
         public static BindingList<Customer> ListOfCustomers = new BindingList<Customer>();
+        public static BindingList<Appointment> ListOfAppointments = new BindingList<Appointment>();
         public static Dictionary<int, Address> AddressDictionary = new Dictionary<int, Address>();
         public static Dictionary<int, City> CityDictionary = new Dictionary<int, City>();
         public static Dictionary<int, Country> CountryDictionary = new Dictionary<int, Country>();
@@ -38,6 +39,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             Database.getAddresses();
             Database.getCities();
             Database.getCountries();
+            Database.getAppointments();
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -48,6 +50,13 @@ namespace C969___Scheduling_App___Isaac_Heist
         private void MainScreen_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void appointmentsButton_Click(object sender, EventArgs e)
+        {
+            var appointmentScreen = new AppointmentsForm(this);
+            appointmentScreen.Show();
+            Hide();
         }
     }
 }
