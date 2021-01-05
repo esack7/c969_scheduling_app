@@ -61,8 +61,16 @@ namespace C969___Scheduling_App___Isaac_Heist
             string selectedType = typeComboBox.SelectedValue.ToString();
             DateTime selectedStart = startDateTimePicker.Value;
             DateTime selectedEnd = endDateTimePicker.Value;
-            //int ID;
-            Database.addAppointment(selectedCustomerId, selectedType, selectedStart, selectedEnd);
+
+            if (SelectedAppointmentID >= 0)
+            {
+                Appointment appointment = MainScreen.ListOfAppointments.Where(appt => appt.AppointmentId == SelectedAppointmentID).Single();
+                Database.updateAppointment(appointment, selectedCustomerId, selectedType, selectedStart, selectedEnd);
+            } 
+            else
+            {
+                Database.addAppointment(selectedCustomerId, selectedType, selectedStart, selectedEnd);
+            }
             Close();
         }
 

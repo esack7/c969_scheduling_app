@@ -92,6 +92,22 @@ namespace C969___Scheduling_App___Isaac_Heist
             MainScreen.ListOfAppointments.Remove(appointment);
         }
 
+        public static void updateAppointment(Appointment appointment, int customerId, string type, DateTime start, DateTime end)
+        {
+            DateTime now = DateTime.Now;
+            string nowString = now.ToUniversalTime().ToString("yy-MM-dd HH:mm:ss", DateTimeFormatInfo.InvariantInfo);
+            dbConnect.Open();
+            string query = $"UPDATE appointment SET customerId={customerId},userId={MainScreen.LoggedInUser.UserID},type='{type}',start='{start.ToUniversalTime().ToString("yy-MM-dd HH:mm:ss", DateTimeFormatInfo.InvariantInfo)}',end='{end.ToUniversalTime().ToString("yy-MM-dd HH:mm:ss", DateTimeFormatInfo.InvariantInfo)}',lastUpdate='{nowString}',lastUpdateBy='{MainScreen.LoggedInUser.UserName}' WHERE appointmentId={appointment.AppointmentId};";
+            MySqlCommand cmd = new MySqlCommand(query, dbConnect);
+            cmd.ExecuteNonQuery();
+            dbConnect.Close();
+
+            Appointment updatedAppointment = new Appointment(appointment.AppointmentId, customerId, MainScreen.LoggedInUser.UserID, type, start, end, appointment.CreateDate, appointment.CreatedBy, now, MainScreen.LoggedInUser.UserName);
+            int indexOfAppointmentList = MainScreen.ListOfAppointments.IndexOf(appointment);
+            MainScreen.ListOfAppointments.RemoveAt(indexOfAppointmentList);
+            MainScreen.ListOfAppointments.Insert(indexOfAppointmentList, updatedAppointment);
+        }
+
         public static void getCustomers()
         {
             string query = "select * from customer";
