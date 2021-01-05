@@ -27,7 +27,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             {
                 FileStream output = new FileStream(fileName, FileMode.Create);
                 StreamWriter fileWriter = new StreamWriter(output);
-                string currentLog = $"{user.UserName} logged in at {DateTime.Now}.";
+                string currentLog = $"The user \"{user.UserName}\" logged in on {DateTime.Now.ToUniversalTime()} (UTC).";
 
                 if (fileDoesNotExists)
                 {
