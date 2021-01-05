@@ -82,6 +82,16 @@ namespace C969___Scheduling_App___Isaac_Heist
             MainScreen.ListOfAppointments.Add(addedAppointment);
         }
 
+        public static void deleteAppointment(Appointment appointment)
+        {
+            dbConnect.Open();
+            string query = $"DELETE FROM appointment WHERE appointmentId={appointment.AppointmentId};";
+            MySqlCommand cmd = new MySqlCommand(query, dbConnect);
+            cmd.ExecuteNonQuery();
+            dbConnect.Close();
+            MainScreen.ListOfAppointments.Remove(appointment);
+        }
+
         public static void getCustomers()
         {
             string query = "select * from customer";

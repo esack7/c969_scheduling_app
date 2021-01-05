@@ -49,9 +49,66 @@ namespace C969___Scheduling_App___Isaac_Heist
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            var addForm = new AppointmentAddEditForm(this, "Add");
+            var addForm = new AppointmentAddEditForm(this);
             addForm.Show();
+            appointmentDataGridView.ClearSelection();
             Hide();
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (appointmentDataGridView.SelectedRows.Count < 1)
+                {
+                    throw new ApplicationException("You must select an appointment to edit.");
+                }
+                var selectedRow = appointmentDataGridView.SelectedRows[0];
+                int selectedAppointmentId = Convert.ToInt32(selectedRow.Cells[0].Value);
+                var editForm = new AppointmentAddEditForm(this, selectedAppointmentId);
+                editForm.Show();
+                appointmentDataGridView.ClearSelection();
+                Hide();
+            }
+            catch (ApplicationException error)
+            {
+                MessageBox.Show(error.Message, "Instructions", MessageBoxButtons.OK);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (appointmentDataGridView.SelectedRows.Count < 1)
+                {
+                    throw new ApplicationException("You must select an appointment to delete.");
+                }
+                DialogResult confirmDelete = MessageBox.Show("Are you sure you want to delete the selected appointment?", "Application Instruction", MessageBoxButtons.YesNo);
+                if (confirmDelete == DialogResult.Yes)
+                {
+                    var selectedRow = appointmentDataGridView.SelectedRows[0];
+                    int selectedAppointmentId = Convert.ToInt32(selectedRow.Cells[0].Value);
+                    Appointment selectedAppointment = MainScreen.ListOfAppointments.Where(appt => appt.AppointmentId == selectedAppointmentId).Single();
+                    Database.deleteAppointment(selectedAppointment);
+                }
+                else
+                {
+                    appointmentDataGridView.ClearSelection();
+                }
+             }
+            catch (ApplicationException error)
+            {
+                MessageBox.Show(error.Message, "Instructions", MessageBoxButtons.OK);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK);
+            }
         }
     }
 }

@@ -13,13 +13,19 @@ namespace C969___Scheduling_App___Isaac_Heist
     public partial class AppointmentAddEditForm : Form
     {
         private Form PreviousForm;
-        private string ControlType;
+        private int SelectedAppointmentID = -1;
 
-        public AppointmentAddEditForm(Form prevForm, string control)
+        public AppointmentAddEditForm(Form prevForm, int appointmentId)
         {
             InitializeComponent();
             PreviousForm = prevForm;
-            ControlType = control;
+            SelectedAppointmentID = appointmentId;
+        }
+
+        public AppointmentAddEditForm(Form prevForm)
+        {
+            InitializeComponent();
+            PreviousForm = prevForm;
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -38,9 +44,14 @@ namespace C969___Scheduling_App___Isaac_Heist
             typeComboBox.DataSource = new[] { "Scrum", "Presentation", "Lunch", "Interview", "Consultation" };
             typeComboBox.SelectedItem = null;
 
-            if (ControlType == "Edit")
+            if(SelectedAppointmentID >= 0)
             {
-                idTextBox.Text = "-1";
+                Appointment appointment = MainScreen.ListOfAppointments.Where(appt => appt.AppointmentId == SelectedAppointmentID).Single();
+                idTextBox.Text = appointment.AppointmentId.ToString();
+                customerComboBox.Text = customerDictionary[appointment.CustomerId];
+                typeComboBox.Text = appointment.Type;
+                startDateTimePicker.Value = appointment.Start;
+                endDateTimePicker.Value = appointment.End;
             }
         }
 
