@@ -68,6 +68,20 @@ namespace C969___Scheduling_App___Isaac_Heist
             dbConnect.Close();
         }
 
+        public static void addAppointment(int customerId, string type, DateTime start, DateTime end)
+        {
+            DateTime now = DateTime.Now;
+            var addedAppointment = new Appointment(customerId, MainScreen.LoggedInUser.UserID, type, start, end, now, MainScreen.LoggedInUser.UserName, now, MainScreen.LoggedInUser.UserName);
+
+            dbConnect.Open();
+            string query = $"INSERT INTO `appointment` VALUES ({addedAppointment.AppointmentId},{addedAppointment.CustomerId},{addedAppointment.UserId},'not needed','not needed','not needed','not needed','{addedAppointment.Type}','not needed','{addedAppointment.Start.ToUniversalTime().ToString("yy-MM-dd HH:mm:ss", DateTimeFormatInfo.InvariantInfo)}','{addedAppointment.End.ToUniversalTime().ToString("yy-MM-dd HH:mm:ss", DateTimeFormatInfo.InvariantInfo)}','{addedAppointment.CreateDate.ToUniversalTime().ToString("yy-MM-dd HH:mm:ss", DateTimeFormatInfo.InvariantInfo)}','{addedAppointment.CreatedBy}','{addedAppointment.LastUpdate.ToUniversalTime().ToString("yy-MM-dd HH:mm:ss", DateTimeFormatInfo.InvariantInfo)}','{addedAppointment.LastUpdateBy}')";
+            MySqlCommand cmd = new MySqlCommand(query, dbConnect);
+            cmd.ExecuteNonQuery();
+            dbConnect.Close();
+
+            MainScreen.ListOfAppointments.Add(addedAppointment);
+        }
+
         public static void getCustomers()
         {
             string query = "select * from customer";
