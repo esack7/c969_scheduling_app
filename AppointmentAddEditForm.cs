@@ -12,17 +12,17 @@ namespace C969___Scheduling_App___Isaac_Heist
 {
     public partial class AppointmentAddEditForm : Form
     {
-        private Form PreviousForm;
+        private AppointmentsForm PreviousForm;
         private int SelectedAppointmentID = -1;
 
-        public AppointmentAddEditForm(Form prevForm, int appointmentId)
+        public AppointmentAddEditForm(AppointmentsForm prevForm, int appointmentId)
         {
             InitializeComponent();
             PreviousForm = prevForm;
             SelectedAppointmentID = appointmentId;
         }
 
-        public AppointmentAddEditForm(Form prevForm)
+        public AppointmentAddEditForm(AppointmentsForm prevForm)
         {
             InitializeComponent();
             PreviousForm = prevForm;
@@ -76,6 +76,7 @@ namespace C969___Scheduling_App___Isaac_Heist
 
         private void AppointmentAddEditForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            PreviousForm.UpdateSelection();
             PreviousForm.Show();
         }
     }
