@@ -111,6 +111,14 @@ namespace C969___Scheduling_App___Isaac_Heist
                     int selectedAppointmentId = Convert.ToInt32(selectedRow.Cells[0].Value);
                     Appointment selectedAppointment = MainScreen.ListOfAppointments.Where(appt => appt.AppointmentId == selectedAppointmentId).Single();
                     Database.deleteAppointment(selectedAppointment);
+                    if (monthRadioButton.Checked == true)
+                    {
+                        updateViewWithMonthlySelected();
+                    }
+                    else
+                    {
+                        updateViewWithWeeklySelected();
+                    }
                 }
                 else
                 {

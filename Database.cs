@@ -89,7 +89,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             MySqlCommand cmd = new MySqlCommand(query, dbConnect);
             cmd.ExecuteNonQuery();
             dbConnect.Close();
-            MainScreen.ListOfAppointments.Remove(appointment);
+            var test = MainScreen.ListOfAppointments.Remove(appointment);
         }
 
         public static void updateAppointment(Appointment appointment, int customerId, string type, DateTime start, DateTime end)
