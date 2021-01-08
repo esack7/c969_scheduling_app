@@ -58,5 +58,28 @@ namespace C969___Scheduling_App___Isaac_Heist
             appointmentScreen.Show();
             Hide();
         }
+
+        private void MainScreen_Shown(object sender, EventArgs e)
+        {
+
+            var apptInFifteenMinutes = ListOfAppointments.Where(appt =>
+            {
+                var now = DateTime.Now;
+                var fifteenMinutes = new TimeSpan(0, 15, 0);
+                var timeLeft = appt.Start - now;
+
+                if (timeLeft > new TimeSpan(0, 0, 0) && timeLeft <= fifteenMinutes)
+                {
+                    return true;
+                }
+                return false;
+            });
+
+            if (apptInFifteenMinutes.Count() > 0)
+            {
+                var appointment = apptInFifteenMinutes.First();
+                MessageBox.Show($"You have an appointment with {ListOfCustomers.Where(cust => cust.CustomerId == appointment.CustomerId).Single().CustomerName} at {appointment.Start.ToString("h:mm tt")}.", "Upcoming Appointment", MessageBoxButtons.OK);
+            }
+        }
     }
 }
