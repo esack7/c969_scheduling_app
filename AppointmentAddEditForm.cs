@@ -76,12 +76,12 @@ namespace C969___Scheduling_App___Isaac_Heist
 
                 foreach (var appt in MainScreen.ListOfAppointments)
                 {
-                    if(appt.Start < selectedStart && appt.End > selectedStart)
+                    if(appt.Start < selectedStart && appt.End > selectedStart && !(SelectedAppointmentID >= 0))
                     {
                         overlaping = true;
                     }
 
-                    if (selectedStart < appt.Start && selectedEnd > appt.Start)
+                    if (selectedStart < appt.Start && selectedEnd > appt.Start && !(SelectedAppointmentID >= 0))
                     {
                         overlaping = true;
                     }
