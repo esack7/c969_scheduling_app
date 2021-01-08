@@ -72,6 +72,20 @@ namespace C969___Scheduling_App___Isaac_Heist
                 string selectedType = typeComboBox.SelectedValue.ToString();
                 DateTime selectedStart = startDateTimePicker.Value;
                 DateTime selectedEnd = endDateTimePicker.Value;
+                bool overlaping = false;
+
+                foreach (var appt in MainScreen.ListOfAppointments)
+                {
+                    if(appt.Start < selectedStart && appt.End > selectedStart)
+                    {
+                        overlaping = true;
+                    }
+
+                    if (selectedStart < appt.Start && selectedEnd > appt.Start)
+                    {
+                        overlaping = true;
+                    }
+                }
 
                 if (selectedCustomerId < 1)
                 {
@@ -86,6 +100,11 @@ namespace C969___Scheduling_App___Isaac_Heist
                 if ((selectedStart.TimeOfDay < businessStart) || (selectedStart.TimeOfDay > businessEnd) || (selectedEnd.TimeOfDay < businessStart) || (selectedEnd.TimeOfDay > businessEnd))
                 {
                     throw new ApplicationException("You cannot schedule an appointment outside of business hours, 8 am - 5 pm");
+                }
+
+                if (overlaping)
+                {
+                    throw new ApplicationException("You cannnot overlap appointments");
                 }
 
                 if (SelectedAppointmentID >= 0)
