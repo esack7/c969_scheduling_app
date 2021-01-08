@@ -71,7 +71,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             // 
             this.customerDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.customerDataGridView.Location = new System.Drawing.Point(37, 69);
-            this.customerDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.customerDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.customerDataGridView.Name = "customerDataGridView";
             this.customerDataGridView.RowHeadersWidth = 51;
             this.customerDataGridView.Size = new System.Drawing.Size(640, 226);
@@ -82,7 +82,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             // addButton
             // 
             this.addButton.Location = new System.Drawing.Point(745, 130);
-            this.addButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addButton.Margin = new System.Windows.Forms.Padding(4);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(281, 54);
             this.addButton.TabIndex = 3;
@@ -93,7 +93,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             // editButton
             // 
             this.editButton.Location = new System.Drawing.Point(745, 241);
-            this.editButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editButton.Margin = new System.Windows.Forms.Padding(4);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(281, 54);
             this.editButton.TabIndex = 4;
@@ -104,7 +104,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             // deleteButton
             // 
             this.deleteButton.Location = new System.Drawing.Point(745, 348);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(4);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(281, 54);
             this.deleteButton.TabIndex = 5;
@@ -116,28 +116,28 @@ namespace C969___Scheduling_App___Isaac_Heist
             // 
             this.addressTextBox.Enabled = false;
             this.addressTextBox.Location = new System.Drawing.Point(125, 378);
-            this.addressTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addressTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(551, 22);
-            this.addressTextBox.TabIndex = 7;
+            this.addressTextBox.TabIndex = 2;
             // 
             // address2TextBox
             // 
             this.address2TextBox.Enabled = false;
             this.address2TextBox.Location = new System.Drawing.Point(125, 422);
-            this.address2TextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.address2TextBox.Margin = new System.Windows.Forms.Padding(4);
             this.address2TextBox.Name = "address2TextBox";
             this.address2TextBox.Size = new System.Drawing.Size(551, 22);
-            this.address2TextBox.TabIndex = 8;
+            this.address2TextBox.TabIndex = 3;
             // 
             // zipTextBox
             // 
             this.zipTextBox.Enabled = false;
             this.zipTextBox.Location = new System.Drawing.Point(559, 469);
-            this.zipTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.zipTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(117, 22);
-            this.zipTextBox.TabIndex = 11;
+            this.zipTextBox.TabIndex = 5;
             // 
             // label1
             // 
@@ -145,7 +145,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.label1.Location = new System.Drawing.Point(33, 382);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 16);
+            this.label1.Size = new System.Drawing.Size(60, 17);
             this.label1.TabIndex = 12;
             this.label1.Text = "Address";
             // 
@@ -155,7 +155,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.label2.Location = new System.Drawing.Point(33, 426);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 16);
+            this.label2.Size = new System.Drawing.Size(72, 17);
             this.label2.TabIndex = 13;
             this.label2.Text = "Address 2";
             // 
@@ -165,7 +165,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.label3.Location = new System.Drawing.Point(33, 473);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 16);
+            this.label3.Size = new System.Drawing.Size(31, 17);
             this.label3.TabIndex = 14;
             this.label3.Text = "City";
             // 
@@ -175,7 +175,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.label4.Location = new System.Drawing.Point(33, 518);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 16);
+            this.label4.Size = new System.Drawing.Size(57, 17);
             this.label4.TabIndex = 15;
             this.label4.Text = "Country";
             // 
@@ -185,7 +185,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.label5.Location = new System.Drawing.Point(476, 473);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 16);
+            this.label5.Size = new System.Drawing.Size(65, 17);
             this.label5.TabIndex = 16;
             this.label5.Text = "Zip Code";
             // 
@@ -195,7 +195,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.label6.Location = new System.Drawing.Point(400, 518);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 16);
+            this.label6.Size = new System.Drawing.Size(49, 17);
             this.label6.TabIndex = 17;
             this.label6.Text = "Phone";
             // 
@@ -203,27 +203,27 @@ namespace C969___Scheduling_App___Isaac_Heist
             // 
             this.phoneTextBox.Enabled = false;
             this.phoneTextBox.Location = new System.Drawing.Point(480, 514);
-            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(196, 22);
-            this.phoneTextBox.TabIndex = 18;
+            this.phoneTextBox.TabIndex = 6;
             // 
             // cityComboBox
             // 
             this.cityComboBox.Enabled = false;
             this.cityComboBox.FormattingEnabled = true;
             this.cityComboBox.Location = new System.Drawing.Point(125, 469);
-            this.cityComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cityComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.cityComboBox.Name = "cityComboBox";
             this.cityComboBox.Size = new System.Drawing.Size(316, 24);
-            this.cityComboBox.TabIndex = 19;
+            this.cityComboBox.TabIndex = 4;
             this.cityComboBox.SelectionChangeCommitted += new System.EventHandler(this.cityComboBox_SelectionChangeCommitted);
             // 
             // countryTextBox
             // 
             this.countryTextBox.Enabled = false;
             this.countryTextBox.Location = new System.Drawing.Point(125, 514);
-            this.countryTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.countryTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.countryTextBox.Name = "countryTextBox";
             this.countryTextBox.Size = new System.Drawing.Size(223, 22);
             this.countryTextBox.TabIndex = 10;
@@ -232,10 +232,10 @@ namespace C969___Scheduling_App___Isaac_Heist
             // 
             this.nameTextBox.Enabled = false;
             this.nameTextBox.Location = new System.Drawing.Point(125, 332);
-            this.nameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(316, 22);
-            this.nameTextBox.TabIndex = 20;
+            this.nameTextBox.TabIndex = 1;
             // 
             // label7
             // 
@@ -243,7 +243,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.label7.Location = new System.Drawing.Point(33, 336);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 16);
+            this.label7.Size = new System.Drawing.Size(45, 17);
             this.label7.TabIndex = 21;
             this.label7.Text = "Name";
             // 
@@ -253,7 +253,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.label8.Location = new System.Drawing.Point(503, 336);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(21, 16);
+            this.label8.Size = new System.Drawing.Size(21, 17);
             this.label8.TabIndex = 22;
             this.label8.Text = "ID";
             // 
@@ -261,7 +261,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             // 
             this.idTextBox.Enabled = false;
             this.idTextBox.Location = new System.Drawing.Point(559, 332);
-            this.idTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.idTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.Size = new System.Drawing.Size(117, 22);
             this.idTextBox.TabIndex = 23;
@@ -269,7 +269,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             // backButton
             // 
             this.backButton.Location = new System.Drawing.Point(745, 453);
-            this.backButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backButton.Margin = new System.Windows.Forms.Padding(4);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(281, 54);
             this.backButton.TabIndex = 24;
@@ -280,7 +280,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             // saveButton
             // 
             this.saveButton.Location = new System.Drawing.Point(745, 180);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(4);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(281, 54);
             this.saveButton.TabIndex = 25;
@@ -292,7 +292,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             // cancelButton
             // 
             this.cancelButton.Location = new System.Drawing.Point(745, 287);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(4);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(281, 54);
             this.cancelButton.TabIndex = 26;
@@ -330,7 +330,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.customerDataGridView);
             this.Controls.Add(this.mainLabel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CustomerRecords";
             this.Text = "Customer Records";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CustomerRecords_FormClosed);

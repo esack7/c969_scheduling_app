@@ -111,10 +111,31 @@ namespace C969___Scheduling_App___Isaac_Heist
         {
             try
             {
+                if (nameTextBox.Text == "")
+                {
+                    throw new ApplicationException("A customer must have a name.");
+                }
+
+                if (addressTextBox.Text == "")
+                {
+                    throw new ApplicationException("A customer must have an address.");
+                }
+
                 if (cityComboBox.SelectedItem == null)
                 {
                     throw new ApplicationException("You must select a city.");
                 }
+
+                if (zipTextBox.Text == "")
+                {
+                    throw new ApplicationException("A customer must have a zip code.");
+                }
+
+                if (phoneTextBox.Text == "")
+                {
+                    throw new ApplicationException("A customer must have a phone number.");
+                }
+
                 string customerName = nameTextBox.Text;
                 string address1 = addressTextBox.Text;
                 string address2 = address2TextBox.Text;
@@ -177,8 +198,23 @@ namespace C969___Scheduling_App___Isaac_Heist
                 DialogResult confirmDelete = MessageBox.Show("Are you sure you want to delete the selected customer?", "Application Instruction", MessageBoxButtons.YesNo);
                 if (confirmDelete == DialogResult.Yes)
                 {
+                    bool hasScheduledAppointments = false;
                     var selectedRow = customerDataGridView.SelectedRows[0];
                     int selectedCustomerId = Convert.ToInt32(selectedRow.Cells[0].Value);
+
+                    foreach (var appt in MainScreen.ListOfAppointments)
+                    {
+                        if (appt.CustomerId == selectedCustomerId)
+                        {
+                            hasScheduledAppointments = true;
+                        }
+                    }
+
+                    if (hasScheduledAppointments)
+                    {
+                        throw new ApplicationException("You cannont delete a customer with scheduled appointments.");
+                    }
+
                     Customer selectedCustomer = MainScreen.ListOfCustomers.Where(customer => customer.CustomerId == selectedCustomerId).Single();
                     Database.deleteCustomer(selectedCustomer);
                     clearInputs();
