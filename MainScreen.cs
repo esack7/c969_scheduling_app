@@ -39,7 +39,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             Database.getAddresses();
             Database.getCities();
             Database.getCountries();
-            Database.getAppointments();    
+            Database.getAppointments();
         }
 
         private void exitButton_Click(object sender, EventArgs e)
