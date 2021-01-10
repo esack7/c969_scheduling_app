@@ -32,8 +32,6 @@ namespace C969___Scheduling_App___Isaac_Heist
             {
                 changeLoginToSpanish();
             }
-            userNameTextBox.Text = "test"; //remove once development is done
-            passwordTextBox.Text = "test"; //remove
         }
 
         private void loginButton_Click(object sender, EventArgs e)
