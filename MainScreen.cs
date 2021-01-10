@@ -81,5 +81,12 @@ namespace C969___Scheduling_App___Isaac_Heist
                 MessageBox.Show($"You have an appointment with {ListOfCustomers.Where(cust => cust.CustomerId == appointment.CustomerId).Single().CustomerName} at {appointment.Start.ToString("h:mm tt")}.", "Upcoming Appointment", MessageBoxButtons.OK);
             }
         }
+
+        private void reportsButton_Click(object sender, EventArgs e)
+        {
+            var reportsScreen = new ReportsForm(this);
+            reportsScreen.Show();
+            Hide();
+        }
     }
 }
