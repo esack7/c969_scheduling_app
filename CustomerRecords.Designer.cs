@@ -45,7 +45,6 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.label6 = new System.Windows.Forms.Label();
             this.phoneTextBox = new System.Windows.Forms.TextBox();
             this.cityComboBox = new System.Windows.Forms.ComboBox();
-            this.countryTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -53,6 +52,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.backButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.countryComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,11 +133,11 @@ namespace C969___Scheduling_App___Isaac_Heist
             // zipTextBox
             // 
             this.zipTextBox.Enabled = false;
-            this.zipTextBox.Location = new System.Drawing.Point(559, 469);
+            this.zipTextBox.Location = new System.Drawing.Point(522, 469);
             this.zipTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.zipTextBox.Name = "zipTextBox";
-            this.zipTextBox.Size = new System.Drawing.Size(117, 22);
-            this.zipTextBox.TabIndex = 5;
+            this.zipTextBox.Size = new System.Drawing.Size(154, 22);
+            this.zipTextBox.TabIndex = 6;
             // 
             // label1
             // 
@@ -162,7 +162,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(33, 473);
+            this.label3.Location = new System.Drawing.Point(33, 517);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 17);
@@ -172,7 +172,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(33, 518);
+            this.label4.Location = new System.Drawing.Point(33, 472);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 17);
@@ -182,7 +182,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(476, 473);
+            this.label5.Location = new System.Drawing.Point(449, 472);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 17);
@@ -192,7 +192,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(400, 518);
+            this.label6.Location = new System.Drawing.Point(449, 517);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 17);
@@ -202,31 +202,22 @@ namespace C969___Scheduling_App___Isaac_Heist
             // phoneTextBox
             // 
             this.phoneTextBox.Enabled = false;
-            this.phoneTextBox.Location = new System.Drawing.Point(480, 514);
+            this.phoneTextBox.Location = new System.Drawing.Point(522, 514);
             this.phoneTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.phoneTextBox.Name = "phoneTextBox";
-            this.phoneTextBox.Size = new System.Drawing.Size(196, 22);
-            this.phoneTextBox.TabIndex = 6;
+            this.phoneTextBox.Size = new System.Drawing.Size(154, 22);
+            this.phoneTextBox.TabIndex = 7;
             // 
             // cityComboBox
             // 
             this.cityComboBox.Enabled = false;
             this.cityComboBox.FormattingEnabled = true;
-            this.cityComboBox.Location = new System.Drawing.Point(125, 469);
+            this.cityComboBox.Location = new System.Drawing.Point(125, 514);
             this.cityComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.cityComboBox.Name = "cityComboBox";
             this.cityComboBox.Size = new System.Drawing.Size(316, 24);
-            this.cityComboBox.TabIndex = 4;
+            this.cityComboBox.TabIndex = 5;
             this.cityComboBox.SelectionChangeCommitted += new System.EventHandler(this.cityComboBox_SelectionChangeCommitted);
-            // 
-            // countryTextBox
-            // 
-            this.countryTextBox.Enabled = false;
-            this.countryTextBox.Location = new System.Drawing.Point(125, 514);
-            this.countryTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.countryTextBox.Name = "countryTextBox";
-            this.countryTextBox.Size = new System.Drawing.Size(223, 22);
-            this.countryTextBox.TabIndex = 10;
             // 
             // nameTextBox
             // 
@@ -301,11 +292,23 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.cancelButton.Visible = false;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
+            // countryComboBox
+            // 
+            this.countryComboBox.Enabled = false;
+            this.countryComboBox.FormattingEnabled = true;
+            this.countryComboBox.Location = new System.Drawing.Point(125, 469);
+            this.countryComboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.countryComboBox.Name = "countryComboBox";
+            this.countryComboBox.Size = new System.Drawing.Size(316, 24);
+            this.countryComboBox.TabIndex = 4;
+            this.countryComboBox.SelectionChangeCommitted += new System.EventHandler(this.countryComboBox_SelectionChangeCommitted);
+            // 
             // CustomerRecords
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.countryComboBox);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.backButton);
@@ -322,7 +325,6 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.zipTextBox);
-            this.Controls.Add(this.countryTextBox);
             this.Controls.Add(this.address2TextBox);
             this.Controls.Add(this.addressTextBox);
             this.Controls.Add(this.deleteButton);
@@ -359,7 +361,6 @@ namespace C969___Scheduling_App___Isaac_Heist
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox phoneTextBox;
         private System.Windows.Forms.ComboBox cityComboBox;
-        private System.Windows.Forms.TextBox countryTextBox;
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -367,5 +368,6 @@ namespace C969___Scheduling_App___Isaac_Heist
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.ComboBox countryComboBox;
     }
 }
