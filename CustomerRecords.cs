@@ -288,5 +288,15 @@ namespace C969___Scheduling_App___Isaac_Heist
             cityComboBox.ValueMember = "Key";
             cityComboBox.SelectedItem = null;
         }
+
+        private void countryComboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cityComboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

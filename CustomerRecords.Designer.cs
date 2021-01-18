@@ -218,6 +218,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.cityComboBox.Size = new System.Drawing.Size(316, 24);
             this.cityComboBox.TabIndex = 5;
             this.cityComboBox.SelectionChangeCommitted += new System.EventHandler(this.cityComboBox_SelectionChangeCommitted);
+            this.cityComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cityComboBox_KeyPress);
             // 
             // nameTextBox
             // 
@@ -302,6 +303,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             this.countryComboBox.Size = new System.Drawing.Size(316, 24);
             this.countryComboBox.TabIndex = 4;
             this.countryComboBox.SelectionChangeCommitted += new System.EventHandler(this.countryComboBox_SelectionChangeCommitted);
+            this.countryComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.countryComboBox_KeyPress);
             // 
             // CustomerRecords
             // 

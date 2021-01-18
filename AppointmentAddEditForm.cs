@@ -41,6 +41,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             
             if (SelectedAppointmentID >= 0)
             {
+                titleLabel.Text = "Edit Appointment";
                 Appointment appointment = MainScreen.ListOfAppointments.Where(appt => appt.AppointmentId == SelectedAppointmentID).Single();
                 idTextBox.Text = appointment.AppointmentId.ToString();
                 customerComboBox.Text = customerDictionary[appointment.CustomerId];
@@ -138,6 +139,16 @@ namespace C969___Scheduling_App___Isaac_Heist
         {
             PreviousForm.UpdateSelection();
             PreviousForm.Show();
+        }
+
+        private void customerComboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void typeComboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }
