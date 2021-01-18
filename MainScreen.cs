@@ -78,6 +78,8 @@ namespace C969___Scheduling_App___Isaac_Heist
             if (apptInFifteenMinutes.Count() > 0)
             {
                 var appointment = apptInFifteenMinutes.First();
+                // The Lambda Expession used in the line below is used to determine a single customer in a list that is equivalent to a particular customer id.
+                // The Lambda Expession is easier to read and faster
                 MessageBox.Show($"You have an appointment with {ListOfCustomers.Where(cust => cust.CustomerId == appointment.CustomerId).Single().CustomerName} at {appointment.Start.ToString("h:mm tt")}.", "Upcoming Appointment", MessageBoxButtons.OK);
             }
         }

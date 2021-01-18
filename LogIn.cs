@@ -51,6 +51,7 @@ namespace C969___Scheduling_App___Isaac_Heist
                     throw new LoginException("You need to have both a User Name and Password to login");
                 }
                 //Below Lambda expession used to determine if user name entered match one of the user names returned from the database.
+                // The Lambda Expession is easier to read and faster
                 List<User> signedInUser = users.Where(user => user.UserName == userName).ToList();
                 
                 if (signedInUser.Count < 1)

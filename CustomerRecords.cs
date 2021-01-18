@@ -24,7 +24,13 @@ namespace C969___Scheduling_App___Isaac_Heist
         private void CustomerRecords_Load(object sender, EventArgs e)
         {
             mainLabel.Text = "Customer Records";
+            Dictionary<int, string> countryNameDictionary = MainScreen.CountryDictionary.ToDictionary(dict => dict.Key, dict => dict.Value.CountryName);
+            countryComboBox.DataSource = new BindingSource(countryNameDictionary, null);
+            countryComboBox.DisplayMember = "Value";
+            countryComboBox.ValueMember = "Key";
+            countryComboBox.SelectedItem = null;
             // Using Lambda in Linq statement below to construct a new dictionary that holds "string" as a value rather than the City object
+            // The Lambda Expession is easier to read and faster
             Dictionary<int, string> cityNameDictionary = MainScreen.CityDictionary.ToDictionary(dict => dict.Key, dict => dict.Value.CityName);
             cityComboBox.DataSource = new BindingSource(cityNameDictionary, null);
             cityComboBox.DisplayMember = "Value";
@@ -62,7 +68,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             zipTextBox.Text = "";
             phoneTextBox.Text = "";
             cityComboBox.Text = "";
-            countryTextBox.Text = "";
+            countryComboBox.Text = "";
         }
 
         private void toggleActiveInputs(bool active)
@@ -70,6 +76,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             nameTextBox.Enabled = active;
             addressTextBox.Enabled = active;
             address2TextBox.Enabled = active;
+            countryComboBox.Enabled = active;
             cityComboBox.Enabled = active;
             zipTextBox.Enabled = active;
             phoneTextBox.Enabled = active;
@@ -97,13 +104,18 @@ namespace C969___Scheduling_App___Isaac_Heist
             zipTextBox.Text = MainScreen.AddressDictionary[selectedAddressId].PostalCode;
             phoneTextBox.Text = MainScreen.AddressDictionary[selectedAddressId].Phone;
             cityComboBox.Text = MainScreen.CityDictionary[selectedCityId].CityName;
-            countryTextBox.Text = MainScreen.CountryDictionary[selectedCountryId].CountryName;
+            countryComboBox.Text = MainScreen.CountryDictionary[selectedCountryId].CountryName;
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
             customerDataGridView.ClearSelection();
             clearInputs();
+            Dictionary<int, string> cityNameDictionary = MainScreen.CityDictionary.ToDictionary(dict => dict.Key, dict => dict.Value.CityName);
+            cityComboBox.DataSource = new BindingSource(cityNameDictionary, null);
+            cityComboBox.DisplayMember = "Value";
+            cityComboBox.ValueMember = "Key";
+            cityComboBox.SelectedItem = null;
             toggleActiveInputs(true);
         }
 
@@ -180,13 +192,6 @@ namespace C969___Scheduling_App___Isaac_Heist
             toggleActiveInputs(false);
         }
 
-        private void cityComboBox_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            var selectedCityKey = cityComboBox.SelectedValue;
-            int selectedCountryKey = MainScreen.CityDictionary[Convert.ToInt32(selectedCityKey)].CountryId;
-            countryTextBox.Text = MainScreen.CountryDictionary[selectedCountryKey].CountryName;
-        }
-
         private void deleteButton_Click(object sender, EventArgs e)
         {
             try
@@ -244,6 +249,11 @@ namespace C969___Scheduling_App___Isaac_Heist
                     throw new ApplicationException("You must select a customer to edit.");
                 }
                 toggleActiveInputs(true);
+                var selectedCountryKey = Convert.ToInt32(countryComboBox.SelectedValue);
+                var newCityNameDictionary = MainScreen.CityDictionary.Where(dict => dict.Value.CountryId == selectedCountryKey).ToDictionary(dict => dict.Key, dict => dict.Value.CityName);
+                cityComboBox.DataSource = new BindingSource(newCityNameDictionary, null);
+                cityComboBox.DisplayMember = "Value";
+                cityComboBox.ValueMember = "Key";
             }
             catch (ApplicationException error)
             {
@@ -258,6 +268,36 @@ namespace C969___Scheduling_App___Isaac_Heist
         private void backButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void cityComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if(countryComboBox.Text == "")
+            {
+                var selectedCityKey = cityComboBox.SelectedValue;
+                int selectedCountryKey = MainScreen.CityDictionary[Convert.ToInt32(selectedCityKey)].CountryId;
+                countryComboBox.Text = MainScreen.CountryDictionary[selectedCountryKey].CountryName;
+            }
+        }
+
+        private void countryComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            var selectedCountryKey = Convert.ToInt32(countryComboBox.SelectedValue);
+            var newCityNameDictionary = MainScreen.CityDictionary.Where(dict => dict.Value.CountryId == selectedCountryKey).ToDictionary(dict => dict.Key, dict => dict.Value.CityName);
+            cityComboBox.DataSource = new BindingSource(newCityNameDictionary, null);
+            cityComboBox.DisplayMember = "Value";
+            cityComboBox.ValueMember = "Key";
+            cityComboBox.SelectedItem = null;
+        }
+
+        private void countryComboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cityComboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }
