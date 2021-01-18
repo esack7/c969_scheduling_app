@@ -44,6 +44,8 @@ namespace C969___Scheduling_App___Isaac_Heist
                 DateTime nextMonth = thisMonth.AddMonths(2).AddMilliseconds(-1);
 
                 var groupedByMonthList = MainScreen.ListOfAppointments
+                    // The following threee lines contain Lambda expessions that order appointments, determine if appointments meet certain conditions, and group appointments to create a new list of appointments.
+                    // The Lambda Expession is easier to read and faster
                     .OrderBy(appt => appt.Start)
                     .Where(appt => appt.Start >= lastMonth && appt.Start <= nextMonth)
                     .GroupBy(appt => appt.Start.ToString("MMMM yyyy"));

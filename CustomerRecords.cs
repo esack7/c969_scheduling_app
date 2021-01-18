@@ -30,6 +30,7 @@ namespace C969___Scheduling_App___Isaac_Heist
             countryComboBox.ValueMember = "Key";
             countryComboBox.SelectedItem = null;
             // Using Lambda in Linq statement below to construct a new dictionary that holds "string" as a value rather than the City object
+            // The Lambda Expession is easier to read and faster
             Dictionary<int, string> cityNameDictionary = MainScreen.CityDictionary.ToDictionary(dict => dict.Key, dict => dict.Value.CityName);
             cityComboBox.DataSource = new BindingSource(cityNameDictionary, null);
             cityComboBox.DisplayMember = "Value";
